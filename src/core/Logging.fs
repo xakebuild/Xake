@@ -153,7 +153,7 @@ module private ConsoleSink =
                     | Some colors ->
                         // in case of CRLF in the string make sure we washed out the progress message
                         let rec writeLines = function
-                        | [] -> fun _ -> ()
+                        | [] -> ignore
                         | (txt: string)::tail ->
                             function
                             | true ->

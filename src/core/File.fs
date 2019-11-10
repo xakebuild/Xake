@@ -3,8 +3,8 @@
 module private impl =
 
   let compareNames : string -> string -> int =
-      let isUnix = Env.isUnix
-      fun a b -> System.String.Compare(a, b, isUnix)
+      let ignoreCase = Env.isUnix
+      fun a b -> System.String.Compare(a, b, ignoreCase)
 
   let getFileHash : string -> int =
       if Env.isUnix then

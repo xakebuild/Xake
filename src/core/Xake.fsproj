@@ -17,6 +17,7 @@
     <Compile Include="Pickler.fs" />
     <Compile Include="Env.fs" />
     <Compile Include="Path.fs" />
+    <Compile Include="PathExt.fs" />
     <Compile Include="File.fsi" />
     <Compile Include="File.fs" />
     <Compile Include="Fileset.fs" />

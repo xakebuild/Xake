@@ -45,8 +45,7 @@ type ExecOptions = {
     /// Dump dependencies only
     Progress: bool
 } with
-static member Default =
-    {
+static member Default = {
     ProjectRoot = System.IO.Directory.GetCurrentDirectory()
     Threads = System.Environment.ProcessorCount
     ConLogLevel = Normal
@@ -62,12 +61,11 @@ static member Default =
     DbFileName = ".xake"
     DryRun = false
     DumpDeps = false
-    Progress = true
-    }
+    Progress = true }
 end
 
-type internal ExecStatus = | Succeed | Skipped | JustFile
-type private TaskPool = Agent<WorkerPool.ExecMessage<ExecStatus>>
+type ExecStatus = | Succeed | Skipped | JustFile
+type TaskPool = Agent<WorkerPool.ExecMessage<ExecStatus>>
 
 /// Script execution context
 type ExecContext = {

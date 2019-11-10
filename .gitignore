@@ -14,6 +14,7 @@ _UpgradeReport*
 packages
 .nuget
 .paket
+.ionide
 
 # Ignore Visual Studio files
 *.pdb
@@ -32,6 +33,8 @@ TestResult.*
 .xake*
 .fake
 .vs/
+.vscode/
+.ionide/
 samples/**/*.exe
 samples/**/*.dll
 samples/**/*.fsx.lock

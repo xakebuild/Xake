@@ -3,8 +3,6 @@
 [<AutoOpen>]
 module ScriptFuncs =
 
-    open XakeScript
-
     /// <summary>
     /// Gets the script options.
     /// </summary>
@@ -124,9 +122,6 @@ module ScriptFuncs =
         do! need targets
         do! alwaysRerun()   // always check demanded dependencies. Otherwise it wan't check any target is available
     })
-    
-    [<System.Obsolete("Use <== instead")>]
-    let (==>) = (<==)
 
     /// Defines a rule which demands the other targets to be sequentially built.
     /// Unlike '<==' operator, this one waits the completion of one before issuing another rule.
@@ -136,16 +131,4 @@ module ScriptFuncs =
         do! alwaysRerun()
     })
 
-    type RuleActionArgs =
-        RuleActionArgs of File * Map<string,string>
-        with
-        /// Gets the resulting file.
-        member this.File = let (RuleActionArgs (file,_)) = this in file
-        /// Gets the full name of resulting file.
-        member this.FullName = let (RuleActionArgs (file,_)) = this in File.getFullName file
-
-        /// Gets group (part of the name) by its name.
-        member this.GetGroup(key) =
-            let (RuleActionArgs (_,groups)) = this in
-            groups |> Map.tryFind key |> function |Some v -> v | None -> ""
 
